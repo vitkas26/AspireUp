@@ -3,11 +3,12 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.ksp)
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "kg.life.aspireUp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "kg.life.aspireUp"
@@ -47,13 +48,17 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.kotlin.coroutines.android)
+    implementation(libs.androidx.splash)
+
 
     //Compose Bom
     implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.foundation.android)
+    implementation(libs.androidx.ui.text.google.fonts)
 
     //Local DB Room
     ksp(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
 
     //DI Hilt
@@ -65,7 +70,7 @@ dependencies {
 
     //Tests
     testImplementation(libs.junit)
-    implementation(libs.androidx.room.testing)
+    testImplementation(libs.androidx.room.testing)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

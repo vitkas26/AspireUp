@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "AspireUp"
 include(":app")
 include(":core")
+include(":core-ui")
